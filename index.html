@@ -45,7 +45,7 @@ const player=new THREE.Group();const body=new THREE.Mesh(new THREE.CapsuleGeomet
 const crystals=[];const crystalPositions=[[-17,1,-14],[18,1,-11],[-21,1,5],[20,1,18],[2,1,24],[10,1,-2]];
 for(let i=0;i<6;i++){const g=new THREE.Group();const gem=new THREE.Mesh(new THREE.OctahedronGeometry(.9,0),new THREE.MeshStandardMaterial({color:0x63f7ed,emissive:0x19bfb0,emissiveIntensity:1.6,metalness:.35,roughness:.15}));gem.position.y=2.3;gem.castShadow=true;g.add(gem);const glow=new THREE.PointLight(0x4fffe5,1.5,6);glow.position.y=2.3;g.add(glow);g.position.set(crystalPositions[i][0],2,crystalPositions[i][2]);scene.add(g);crystals.push({g,gem,got:false,phase:Math.random()*6})}
 const keys={};let moveX=0,moveZ=0,joyX=0,joyY=0,running=false,paused=true,started=false,got=0,elapsed=0,soundOn=true,toastTime=0,nearby=null,won=false;
-const countEl=document.get.getElementById;
+
 function fa(n){return String(n).replace(/[0-9]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d])}
 function toast(t){const e=document.getElementById('toast');e.textContent=t;e.style.opacity=1;toastTime=2.2}
 function refresh(){document.getElementById('count').textContent=fa(got)+' / ۶';document.getElementById('questText').textContent=got<6?'بلورها را پیدا کن: '+fa(got)+' از ۶ بلور جمع‌آوری شده.':'همه‌ی بلورها پیدا شدند! به فانوس دریایی در شمال جزیره برو.'}
